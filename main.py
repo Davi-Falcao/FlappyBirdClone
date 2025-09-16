@@ -1,4 +1,3 @@
-
 import pygame, sys, random
 
 def draw_floor():
@@ -103,7 +102,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 game_font = pygame.font.Font('Data/04B_19.TTF', 40)
 
-#Game Variables
+#Variaveis do jogo
 gravity = 0.25
 bird_movement = 0
 game_active = True
@@ -179,14 +178,14 @@ while True:
     screen.blit(bg_surface,(0,0))
 
     if game_active:
-        #Bird movement
+        #Movimento do passaro
         bird_movement += gravity
         rotated_bird = rotate_bird(bird_surface)
         bird_rect.centery += bird_movement
         screen.blit(rotated_bird, bird_rect)
         game_active = check_collision(pipe_list)
 
-        #Pipes
+        #Cano
         pipe_list = move_pipes(pipe_list)
         draw_pipe(pipe_list)
 
@@ -199,7 +198,7 @@ while True:
         high_score = update_score(score, high_score)
         score_display('game_over')
 
-    #Floor
+    #Chao
     floor_x_pos -= 1
     draw_floor()
     if floor_x_pos <= -400:
